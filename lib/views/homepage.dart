@@ -1,4 +1,6 @@
+import 'package:counter_bloc/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -17,12 +19,16 @@ class Homepage extends StatelessWidget {
               height: 200,
             ),
             Container(
-              child: const Text(
-                "1",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: BlocBuilder<CounterBloc, CounterState>(
+                builder: (context, state) {
+                  return Text(
+                    state.counter.toString(),
+                    style: const TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(
@@ -32,7 +38,9 @@ class Homepage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    context.read<CounterBloc>().add(DecrementCounter());
+                  },
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
@@ -58,7 +66,9 @@ class Homepage extends StatelessWidget {
                   width: 40,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    context.read<CounterBloc>().add(IncrementCounter());
+                  },
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
