@@ -13,7 +13,7 @@ class Homepage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 200,
             ),
             Container(
@@ -25,7 +25,7 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(
@@ -34,7 +34,7 @@ class Homepage extends StatelessWidget {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
                         color: Colors.purple[100],
                         boxShadow: const [
@@ -54,13 +54,13 @@ class Homepage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 40,
                 ),
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
                         color: Colors.purple[100],
                         boxShadow: const [
